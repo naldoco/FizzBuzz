@@ -1,4 +1,5 @@
 module FizzBuzz where
 fizzBuzz :: Int -> String
-fizzBuzz n = "one!"
+fizzBuzz 1 = "one!"
+fizzBuzz _ = "two!"
 
