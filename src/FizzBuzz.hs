@@ -18,3 +18,10 @@ tens n
     tensAnswers !! (n-2)
     where
       tensAnswers = words "twenty thirty forty fifty sixty seventy eighty ninety"
+
+number :: Int -> String
+number n
+  | 1 <= n && n < 20           = lessThan20 n
+  | n `mod` 10 == 0 && n < 100 = tens (n `div` 10)
+  | n < 100                    = tens (n `div` 10) ++ " " ++ lessThan20 (n `mod` 10)
+  | n == 100                    = "one hundred"
