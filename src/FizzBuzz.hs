@@ -11,3 +11,10 @@ lessThan20 n
                  "eleven twelve thirteen fourteen fifteen sixteen "  ++
                  "seventeen eighteen nineteen")
     in lessThan20Answers !! (n-1)
+
+tens :: Int -> String
+tens n
+  | n >= 2 && n <= 9 =
+    tensAnswers !! (n-2)
+    where
+      tensAnswers = words "twenty thirty forty fifty sixty seventy eighty ninety"
