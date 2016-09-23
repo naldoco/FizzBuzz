@@ -10,12 +10,24 @@ lessThan20Answers = words ("one two three four five six seven eight nine ten " +
                            "seventeen eighteen nineteen")
 tensAnswers = words ("twenty thirty forty fifty sixty seventy eighty ninety")
 
-
 fizzBuzzSuite :: TestTree
 fizzBuzzSuite = testGroup "FizzBuzz tests"
-                [ testGroup "fizzBuzz" $
-                  [ testCase "1 is one!" $ fizzBuzz 1 @?= "one!"
-                  , testCase "2 is two!" $ fizzBuzz 2 @?= "two!"
+                [ testGroup "fizzBuzz  -- Parcial test" $
+                  [ testCase   "1 is one!"        $ fizzBuzz   1 @?= "one!"
+                  , testCase   "2 is two!"        $ fizzBuzz   2 @?= "two!"
+                  , testCase   "3 is fizz!"       $ fizzBuzz   3 @?= "fizz!"
+                  , testCase   "5 is buzz!"       $ fizzBuzz   5 @?= "buzz!"
+                  , testCase  "10 is buzz!"       $ fizzBuzz  10 @?= "buzz!"
+                  , testCase  "11 is eleven!"     $ fizzBuzz  11 @?= "eleven!"
+                  , testCase  "15 is fizzbuzz!"   $ fizzBuzz  15 @?= "fizzbuzz!"
+                  , testCase  "19 is nineteen!"   $ fizzBuzz  19 @?= "nineteen!"
+                  , testCase  "25 is buzz!"       $ fizzBuzz  25 @?= "buzz!"
+                  , testCase  "50 is buzz!"       $ fizzBuzz  50 @?= "buzz!"
+                  , testCase  "60 is fizzbuzz!"   $ fizzBuzz  60 @?= "fizzbuzz!"
+                  , testCase  "90 is fizzbuzz!"   $ fizzBuzz  90 @?= "fizzbuzz!"
+                  , testCase  "91 is ninety one!" $ fizzBuzz  91 @?= "ninety one!"
+                  , testCase  "99 is fizz!"       $ fizzBuzz  99 @?= "fizz!"
+                  , testCase "100 is buzz!"       $ fizzBuzz 100 @?= "buzz!"
                   ]
                 , testGroup "lessThan20" $
                   map ( \(n, t) -> testCase (show n ++ " is " ++ t) $ lessThan20 n @?= t)
@@ -23,7 +35,7 @@ fizzBuzzSuite = testGroup "FizzBuzz tests"
                 , testGroup "tens" $
                   map ( \(n, t) -> testCase (show n ++ " is " ++ t) $ tens n @?= t)
                       (zip [2..] tensAnswers)
-                , testGroup "number" $
+                , testGroup "number  -- Parcial test" $
                   [ testCase   "1 is one"         $ number   1 @?= "one"
                   , testCase   "5 is five"        $ number   5 @?= "five"
                   , testCase  "10 is ten"         $ number  10 @?= "ten"
