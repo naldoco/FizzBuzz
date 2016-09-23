@@ -5,6 +5,10 @@ import Test.Tasty.HUnit
 
 import FizzBuzz
 
+lessThan20Answers = words ("one two three four five six seven eight nine ten " ++
+                           "eleven twelve thirteen fourteen fifteen sixteen "  ++
+                           "seventeen eighteen nineteen")
+
 fizzBuzzSuite :: TestTree
 fizzBuzzSuite = testGroup "FizzBuzz tests"
                 [ testGroup "fizzBuzz" $
@@ -12,9 +16,9 @@ fizzBuzzSuite = testGroup "FizzBuzz tests"
                   , testCase "2 is two!" $ fizzBuzz 2 @?= "two!"
                   ]
                 , testGroup "lessThan20" $
-                  [ testCase "1 is one"  $ lessThan20 1 @?= "one"
-                  , testCase "2 is two"  $ lessThan20 2 @?= "two"
-                  ]
+                  map ( \(n, t) -> testCase (show n ++ " is " ++ t) $ lessThan20 n @?= t)
+                      (zip [1..] lessThan20Answers)
                 ]
 
 main = defaultMain fizzBuzzSuite
+

@@ -4,6 +4,10 @@ fizzBuzz 1 = "one!"
 fizzBuzz _ = "two!"
 
 lessThan20 :: Int -> String
-lessThan20 1 = "one"
-lessThan20 _ = "two"
-
+lessThan20 n
+  | n > 0 && n < 20 =
+    let lessThan20Answers =
+          words ("one two three four five six seven eight nine ten " ++
+                 "eleven twelve thirteen fourteen fifteen sixteen "  ++
+                 "seventeen eighteen nineteen")
+    in lessThan20Answers !! (n-1)
