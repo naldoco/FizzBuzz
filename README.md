@@ -9,3 +9,12 @@ http://www.decharlas.uji.es/es/programacion-funcional-introduccion-haskell
 https://youtu.be/YU2i3L-euB0  - El Vídeo de YouTube.
 
 https://dl.dropboxusercontent.com/u/18532990/Haskell.pdf - El PDF con los apuntes de A. Marzal.
+
+
+    git clone https://github.com/naldoco/FizzBuzz
+    cd FizzBuzz
+    cabal update
+    cabal sandbox init
+    cabal install tasty tasty-hunit
+    cabal configure --enable-tests
+    cabal build && dist/build/test/test
